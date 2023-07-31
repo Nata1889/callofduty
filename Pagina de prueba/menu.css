@@ -1,0 +1,429 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-image: url(img/fondo_cod_.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Navbar */
+
+.nav-menu:before,
+.nav-menu:after{
+    content: " ";
+    display: table;
+}
+
+.nav-menu:after{
+    clear: both;
+}
+
+.nav-menu{
+    zoom: 1;
+}
+
+nav{
+    padding: 50px;
+}
+
+.menu,
+.submenu{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu{
+    margin: 50px auto;
+    width: 800px;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+}
+
+.menu > li{
+    background: #000;
+    float: left;
+    position: relative;
+    transform: skewX(25deg);
+}
+
+.menu a {
+    display: block;
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: Arial, Helvetica;
+    font-size: 14px;
+}
+
+.menu li:hover{
+    background: limegreen;
+}
+
+.menu > li > a {
+    transform: skewX(-25deg);
+    padding: 1em 2em;
+}
+
+/* Dropdwon */
+.menu-item {
+    position: absolute;
+    width: 200px;
+    left: 50%; margin-left: -100px;
+    transform: skewX(-25deg);
+    transform-origin: left top;
+}
+
+.menu-item li {
+    background-color: #34495e;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item >li > a {
+    padding: 1em 2em;
+}
+
+.menu-item > li::after{
+    content: ' ';
+    position: absolute;
+    top: -125%;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, .9);
+}
+
+.menu-item > li:nth-child(odd){
+    transform: skewX(-25deg) translatex(0);
+}
+
+.menu-item > li:nth-child(odd) > a {
+    transform: skewX(25deg);
+}
+
+.menu-item > li:nth-child(odd)::after{
+    right: -50%;
+    transform: skewX(-25deg) rotate(3deg);
+}
+
+.menu-item > li:nth-child(even){
+    transform: skewX(25deg) translatex(0);
+}
+
+.menu-item > li:nth-child(even) > a {
+    transform: skewX(-25deg);
+}
+
+.menu-item > li:nth-child(even)::after{
+    left: -50%;
+    transform: skewX(25deg) rotate(3deg);
+}
+
+/* Mostrar menú */
+
+.menu-item,
+.menu-item li {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu-item li {
+    transition: .2 ease transform;
+}
+
+.menu > li:hover .menu-item,
+.menu > li:hover .menu-item li {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu > li:hover .menu-item li:nth-child(even) {
+    transform: skewX(25deg) translateX(15px);
+}
+
+.menu > li:hover .menu-item li:nth-child(odd){
+    transform: skewX(-25deg) translate(-15px);
+}
+
+/* Cartas */
+.gallery {
+    display: flex;
+    gap: 4px;
+}
+
+.card {
+    position: relative;
+    left: 0px;
+    width: 80px;
+    border-radius: 10px;
+    padding: 8px;
+    height: 500px;
+    background-color: #fff;
+    transition: 0.4s ease-in-out;
+    flex: 1px;
+    margin-top: 100px;
+    font-family: Arial, sans-serif;
+}
+
+.card:nth-child(1) {
+    background-image: url(img/caratula_call_of_duty_modern_warfare_2-5754880.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.card:nth-child(2) {
+    background-image: url(img/caratula_call_of_duty_warzone_2-5769123.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.card:nth-child(3) {
+    background-image: url(img/caratula_813207_front.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.card:nth-child(4) {
+    background-image: url(img/caratula_mwii_.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.card:nth-child(5) {
+    background-image: url(img/Todas-portadas-Call-of-Duty_1384671540_481605_1024x1452.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.card:hover {
+    flex: 3;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Flip Card */
+.flip-card {
+    background-color: transparent;
+    width: 900px;
+    height: 500px;
+    perspective: 1000px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: 900;
+    text-align: center;
+    margin: 0;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    box-shadow: 0 8px 14px limegreen;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 0.5px solid #ffffff;
+    border-radius: 0.3em;
+}
+
+.flip-card-front {
+    background-image: url(img/MWII-LAUNCH-INTEL-TOUT.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.flip-card-back {
+    background-image: url(img/call-of-duty-modern-warfare-ii.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* Slider */
+.titulo{
+    text-align: center;
+    margin-top: 80px;
+    font-family: sans-serif;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: limegreen;
+}
+
+.contenedor__slider{
+    max-width: 1000px;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+}
+
+input[type=radio]{
+    display: none;
+}
+
+.contenedor{
+    width: 100%;
+    max-width: 800px;
+    height: 100%;
+    max-height: 600px;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjetas{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.tarjeta{
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+
+#item-2:checked ~ .tarjetas #selector-1,
+#item-1:checked ~ .tarjetas #selector-3,
+#item-3:checked ~ .tarjetas #selector-2{
+    transform: translateX(-40%) scale(0.8);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+#item-3:checked ~ .tarjetas #selector-1,
+#item-1:checked ~ .tarjetas #selector-2,
+#item-2:checked ~ .tarjetas #selector-3{
+    transform: translateX(40%) scale(0.8);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+#item-1:checked ~ .tarjetas #selector-1,
+#item-2:checked ~ .tarjetas #selector-2,
+#item-3:checked ~ .tarjetas #selector-3{
+    transform: translateX(0) scale(1);
+    z-index: 1;
+}
+
+/* footer */
+footer{
+    width: 100%;
+    height: 50%;
+    padding: 50px 0px;
+    background-color: #191919;
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+.container__footer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.box__footer{
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.box__footer .logo img{
+    width: 300px;
+}
+
+.box__footer h2{
+    margin-bottom: 30px;
+    color: limegreen;
+    font-weight: 700;
+}
+
+.box__footer a{
+    margin-top: 10px;
+    color: #7a7a7a;
+    font-weight: 600;
+}
+
+.box__footer a:hover{
+    opacity: 0.8;
+}
+
+.box__footer a .fab{
+    font-size: 20px;
+}
+
+.box__copyright{
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    padding: 0px 40px;
+}
+
+.box__copyright p{
+    margin-top: 20px;
+    color: #7a7a7a;
+}
+
+.box__copyright hr{
+    border: none;
+    height: 1px;
+    background-color: lime;
+}
